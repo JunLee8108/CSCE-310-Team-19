@@ -6,13 +6,17 @@
     <link href="/dashboard/stylesheets/all.css" rel="stylesheet" type="text/css" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" rel="stylesheet"
         type="text/css" />
-
     <script src="/dashboard/javascripts/modernizr.js" type="text/javascript"></script>
-
     <link href="/dashboard/images/favicon.png" rel="icon" type="image/png" />
 
     <style>
-
+    .bg {
+        background-image: url('/img/ivory.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+    }
     </style>
 </head>
 
@@ -35,8 +39,7 @@
         ?>
     </header>
 
-    <div class="cetner-body"
-        style="background-image: url(/dashboard/images/background-anywhere.jpeg); background-repeat: no-repeat; background-size: cover; width: auto; height: 100vh;">
+    <div class="bg">
         <div class="row">
             <div class="large-12 columns">
                 <h2>Location</h2>

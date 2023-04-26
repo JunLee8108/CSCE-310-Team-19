@@ -9,7 +9,13 @@
     <link href="/dashboard/images/favicon.png" rel="icon" type="image/png" />
 
     <style>
-
+        .bg {
+            background-image: url('/img/ivory.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+        }
     </style>
 </head>
 
@@ -32,7 +38,7 @@
         ?>
     </header>
 
-    <div class="cetner-body" style="background-image: url(/dashboard/images/background-anywhere.jpeg); background-repeat: no-repeat; background-size: cover; width: auto; height: 100vh;">
+    <div class="bg">
         <div class="row">
             <div class="large-12 columns">
                 <h2>Plan</h2>

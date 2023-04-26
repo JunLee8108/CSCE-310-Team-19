@@ -4,52 +4,58 @@
 <head>
     <link href="/dashboard/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
     <link href="/dashboard/stylesheets/all.css" rel="stylesheet" type="text/css" />
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css" />
     <script src="/dashboard/javascripts/modernizr.js" type="text/javascript"></script>
 
     <style>
-        .text-hero {
-            position: absolute;
-            top: 46%;
-            left: 50%;
-            font-size: 26px;
-            font-weight: bold;
-            transform: translate(-50%, -50%);
-            color: black;
-        }
+    .bg {
+        background-image: url('/img/background-anywhere.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+    }
 
-        .text-hero h1 {
-            text-align: center;
-            font-family: 'Mulish', sans-serif;
-            font-weight: bold;
-            font-size: 45px;
-            letter-spacing: 0.5px;
-            color: white;
-            margin-bottom: 10px;
-        }
+    .text-hero {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-        .text-hero>p {
-            font-size: 21px;
-            margin-top: -2px;
-            margin-left: 9px;
-            font-weight: bold;
-            font-style: italic;
-            color: white;
-        }
+    .text-hero h1 {
+        text-align: center;
+        font-family: 'Mulish', sans-serif;
+        font-weight: bold;
+        font-size: 52px;
+        letter-spacing: 0.5px;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .text-hero>p {
+        font-size: 21px;
+        margin-top: -2px;
+        margin-left: 25px;
+        font-weight: bold;
+        font-style: italic;
+        color: white;
+    }
     </style>
 </head>
 
 <body class="index">
     <div id="fb-root"></div>
     <script>
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=277385395761685";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=277385395761685";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <header class="header contain-to-grid">
@@ -58,7 +64,7 @@
         ?>
     </header>
 
-    <div class="cetner-body" style="background-image: url(/dashboard/images/background-anywhere.jpeg); background-repeat: no-repeat; background-size: cover; width: auto; height: 100vh;">
+    <div class="bg">
         <div class='text-hero'>
             <h1>AnyWhere</h1>
             <p>Makes Travel Easier</p>
