@@ -5,7 +5,7 @@ if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
 	$uri = 'http://';
 }
 $uri .= $_SERVER['HTTP_HOST'];
-header('Location: ' . $uri . '/main/Home.php/');
+header('Location: ' . $uri . '/main/pages/Home.php/');
 exit;
 ?>
 Something is wrong with the XAMPP installation :-(
