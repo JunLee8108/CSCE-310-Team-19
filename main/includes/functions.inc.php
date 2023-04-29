@@ -11,6 +11,18 @@ function emptyInputSignup($firstName, $lastName, $email, $password, $passwordRep
     return $result;
 }
 
+function invalidAge($age)
+{
+    $result = false;
+    // Search Algorithm
+    if (!preg_match("/^[0-9]*$/", $age)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
 function invalidUid($email)
 {
     $result = false;
@@ -72,4 +84,41 @@ function createUser($conn, $firstName, $lastName, $email, $age, $password)
     mysqli_stmt_close($stmt);
     header("location: ../pages/SignUp.php?error=none");
     exit();
+}
+
+function emptyInputLogin($email, $password)
+{
+    $result = false;
+    if (empty($email) || empty($password)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function loginUser($conn, $email, $password)
+{
+    $emailExists = emailExists($conn, $email);
+
+    if ($emailExists === false) {
+        header("location: ../pages/SignIn.php?error=wronglogin");
+        exit();
+    }
+
+    $pwdHashed = $emailExists["UserPassword"];
+    $checkpwd = password_verify($password, $pwdHashed);
+
+    if ($checkpwd === false) {
+        header("location: ../pages/SignIn.php?error=wronglogin");
+        exit();
+    } else if ($checkpwd === true) {
+        session_start();
+
+        $_SESSION["userid"] = $emailExists["UserID"];
+        $_SESSION["useremail"] = $emailExists["Email"];
+        $_SESSION["userfirstname"] = $emailExists["FirstName"];
+        header("location: ../pages/Home.php");
+        exit();
+    }
 }
