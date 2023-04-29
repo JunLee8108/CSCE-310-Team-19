@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <head>
     <link href="/dashboard/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
     <link href="/dashboard/stylesheets/all.css" rel="stylesheet" type="text/css" />
@@ -14,14 +16,16 @@
             background-repeat: no-repeat;
             background-size: cover;
             width: 100%;
-            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 95vh;
         }
 
         .signup-form {
             border: 2px solid white;
-            margin-top: 50px;
             width: 30%;
-            height: 80vh;
+            height: 740px;
             background-color: #5CA36C;
         }
 
@@ -33,7 +37,7 @@
             letter-spacing: 1px;
             color: white;
             margin-top: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .signup-form>p {
@@ -109,6 +113,12 @@
             font-weight: bold;
             margin-bottom: 0px;
         }
+
+        @media only screen and (max-width: 600px) {
+            .signup-form {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 
@@ -136,55 +146,60 @@
     </header>
 
     <div class="bg">
-        <center>
-            <div class='signup-form'>
-                <h1>Sign Up</h1>
-                <form action="../includes/signup.inc.php" method="post">
-                    <center>
-                        <?php
-                        if (isset($_GET["error"])) {
-                            if ($_GET["error"] == "emptyinput") {
-                                echo "<p style='color:black; font-weight:bold; letter-spacing: 0.5px;'>Fill in all fields!</p>";
-                            }
+        <div class='signup-form'>
+            <h1>Sign Up</h1>
+            <form action="../includes/signup.inc.php" method="post">
+                <center>
+                    <?php
+                    if (isset($_GET["error"])) {
+                        if ($_GET["error"] == "emptyinput") {
+                            echo "<p style='color:black; font-weight:bold; letter-spacing: 0.5px; font-size: 18px;'>Fill in all fields!</p>";
                         }
-                        ?>
-                        <p class="instruction">First Name</p>
-                        <input type="text" name="firstName" style="width: 220px">
-                        <p class="instruction">Last Name</p>
-                        <input type="text" name="lastName" style="width: 220px">
-                        <p class="instruction">Email</p>
-                        <input type="email" name="email" style="width: 220px">
-                        <?php
-                        if (isset($_GET["error"])) {
-                            if ($_GET["error"] == "emailtaken") {
-                                echo "<p style= 'color: black; letter-spacing: 0.5px;'>Email is already taken!</p>";
-                            } else if ($_GET["error"] == "invalidemail") {
-                                echo "<p style= 'color: black; letter-spacing: 0.5px;'>Choose a proper email!</p>";
-                            }
+                    }
+                    ?>
+                    <p class="instruction">First Name</p>
+                    <input type="text" name="firstName" style="width: 220px">
+                    <p class="instruction">Last Name</p>
+                    <input type="text" name="lastName" style="width: 220px">
+                    <p class="instruction">Email</p>
+                    <input type="email" name="email" style="width: 220px">
+                    <?php
+                    if (isset($_GET["error"])) {
+                        if ($_GET["error"] == "emailtaken") {
+                            echo "<p style= 'color: black; letter-spacing: 0.5px;'>Email is already taken!</p>";
+                        } else if ($_GET["error"] == "invalidemail") {
+                            echo "<p style= 'color: black; letter-spacing: 0.5px;'>Choose a proper email!</p>";
                         }
-                        ?>
-                        <p class="instruction">Password</p>
-                        <input type="password" id="password" name="password" style="width: 220px">
-                        <input type="password" id="passwordRepeat" name="passwordRepeat" placeholder="Repeat Password" style="width: 220px">
-                        <?php
-                        if (isset($_GET["error"])) {
-                            if ($_GET["error"] == "passwordsdontmatch") {
-                                echo "<p style='color:black'>Passwords do not match!</p>";
-                            }
+                    }
+                    ?>
+                    <p class="instruction">Password</p>
+                    <input type="password" id="password" name="password" style="width: 220px">
+                    <input type="password" id="passwordRepeat" name="passwordRepeat" placeholder="Repeat Password" style="width: 220px">
+                    <?php
+                    if (isset($_GET["error"])) {
+                        if ($_GET["error"] == "passwordsdontmatch") {
+                            echo "<p style='color:black'>Passwords do not match!</p>";
                         }
-                        ?>
-                        <p class="instruction">Age</p>
-                        <input type="text" name="age" style="width: 220px">
-                        <button type="submit" name="submit" class="signup-button">
-                            <p>Sign Up</p>
-                        </button>
-                        <!-- <button type="reset" name="reset" class="reset-button">
+                    }
+                    ?>
+                    <p class="instruction">Age</p>
+                    <input type="text" name="age" style="width: 220px">
+                    <?php
+                    if (isset($_GET["error"])) {
+                        if ($_GET["error"] == "invalideage") {
+                            echo "<p style='color:black'>Invalid age! please enter the number.</p>";
+                        }
+                    }
+                    ?>
+                    <button type="submit" name="submit" class="signup-button">
+                        <p>Sign Up</p>
+                    </button>
+                    <!-- <button type="reset" name="reset" class="reset-button">
                             <p>Reset</p>
                         </button> -->
-                    </center>
-                </form>
-            </div>
-        </center>
+                </center>
+            </form>
+        </div>
 
         <!-- Error Handling -->
         <center>
